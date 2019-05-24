@@ -1,0 +1,29 @@
+import plagas.*
+import elementos.*
+describe "Elementos"{
+	var hogar1 = new Hogar(mugre = 200, confort = 150)
+	var hogar2 = new Hogar(mugre = 100, confort = 300)
+	var tomates = new Huerta(capacidadProduccion = 100)
+	var dog = new Mascota(salud = 300)
+				
+	test "hogar" {
+	
+		assert.notThat(hogar1.esBueno())
+		assert.that(hogar2.esBueno())
+	}	
+	test "huerta"{	
+		
+		reguladorHuerta.nivelMinimo(80)
+		assert.that(tomates.esBueno())
+	}	
+	
+	test "mascota"{
+		assert.that(dog.esBueno())
+	}
+	
+	test "barrio"{
+		var hurlingham = new Barrios(elementos = [hogar2, tomates, dog])
+		assert.that(hurlingham.esCopado())
+	}
+	
+}
