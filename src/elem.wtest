@@ -5,6 +5,10 @@ describe "Elementos"{
 	var hogar2 = new Hogar(mugre = 100, confort = 300)
 	var tomates = new Huerta(capacidadProduccion = 100)
 	var dog = new Mascota(salud = 300)
+	
+	fixture {
+		reguladorHuerta.nivelMinimo(80)
+	}
 				
 	test "hogar" {
 	
@@ -12,8 +16,6 @@ describe "Elementos"{
 		assert.that(hogar2.esBueno())
 	}	
 	test "huerta"{	
-		
-		reguladorHuerta.nivelMinimo(80)
 		assert.that(tomates.esBueno())
 	}	
 	
