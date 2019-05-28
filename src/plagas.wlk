@@ -5,20 +5,19 @@ class Plagas {
 		poblacion *= 0.1  
 		elemento.recibirAtaque(self)
 	}
-	method nivelDanio() = poblacion
+	method nivelDeDanio() = poblacion
 }
 
 class PulgasYGarrapatas inherits Plagas {
-	method nivelDeDanio(){ poblacion *= 2}
+	override method nivelDeDanio() = super()*2
 }
 class Cucarachas inherits Plagas{
 	var property pesoPromedio 
 	
-	override method nivelDanio() = super()/2
+	override method nivelDeDanio() = super()/2
 	override method transmiteEnfermedad() = super() && pesoPromedio >= 10   
 	override method atacar(elemento){ 
-		super(elemento) ; pesoPromedio += 2
-		elemento.recibirAtaque(self)	
+		super(elemento) ; pesoPromedio += 2	
 	}	
 }
 

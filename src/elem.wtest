@@ -5,6 +5,7 @@ describe "Elementos"{
 	var hogar2 = new Hogar(mugre = 100, confort = 300)
 	var tomates = new Huerta(capacidadProduccion = 100)
 	var dog = new Mascota(salud = 300)
+	var khazix = new Cucarachas(pesoPromedio = 10, poblacion = 10)
 	
 	fixture {
 		reguladorHuerta.nivelMinimo(80)
@@ -27,5 +28,10 @@ describe "Elementos"{
 		var hurlingham = new Barrios(elementos = [hogar2, tomates, dog])
 		assert.that(hurlingham.esCopado())
 	}
-	
+	test "ataque"{
+		khazix.atacar(hogar1)
+		assert.equals(12, khazix.pesoPromedio())
+		assert.equals(1, khazix.poblacion())
+		assert.equals(0.5, hogar1.mugre())
+	}
 }
